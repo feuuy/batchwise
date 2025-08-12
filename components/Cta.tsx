@@ -1,67 +1,34 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-interface Cta13Props {
-  heading: string;
-  description: string;
-  buttons?: {
-    primary?: {
-      text: string;
-      url: string;
-    };
-    secondary?: {
-      text: string;
-      url: string;
-    };
-  };
-}
-
-const Cta = ({
-  heading = "Call to Action",
-  description = "Build faster with our collection of pre-built blocks. Speed up your development and ship features in record time.",
-  buttons = {
-    primary: {
-      text: "Buy Now",
-      url: "https://www.shadcnblocks.com",
-    },
-    secondary: {
-      text: "Contact Us",
-      url: "https://www.shadcnblocks.com",
-    },
-  },
-}: Cta13Props) => {
+export default function Cta() {
   return (
-    <section className="py-44 w-full justify-center flex">
-      <div className="container">
-        <div className="bg-accent rounded-lg p-8 md:rounded-xl lg:p-12">
-          <div className="w-full">
-            <h3 className="mb-4 text-4xl font-display md:text-5xl lg:mb-6 lg:text-6xl">
-              {heading}
-            </h3>
-            <p className="text-muted-foreground mb-8 text-lg font-medium lg:text-xl">
-              {description}
-            </p>
-            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-              {buttons.primary && (
-                <Button size="lg" className="w-full sm:w-auto" asChild>
-                  <a href={buttons.primary.url}>{buttons.primary.text}</a>
-                </Button>
-              )}
-              {buttons.secondary && (
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                  asChild
-                >
-                  <a href={buttons.secondary.url}>{buttons.secondary.text}</a>
-                </Button>
-              )}
-            </div>
+    <section className="py-16 px-2 md:px-0">
+      <div className="mx-auto max-w-5xl rounded-3xl border px-6 py-12 md:py-20 lg:py-32">
+        <div className="text-center">
+          <h2 className="text-balance text-4xl font-display lg:text-5xl">
+            Create Your First Batch
+          </h2>
+          <p className="mt-4 text-muted-foreground">
+            Our all-in-one tool cuts guesswork out of the production process, so
+            you can focus on craft, not chaos.
+          </p>
+
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg">
+              <Link href="/sign-up">
+                <span className="font-display">Get Started Free</span>
+              </Link>
+            </Button>
+
+            <Button asChild size="lg" variant="outline">
+              <Link href="/contact-us">
+                <span className="font-display">Contact Us</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export { Cta };
+}

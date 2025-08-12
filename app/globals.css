@@ -162,6 +162,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+body {
+  letter-spacing: var(--tracking-normal);
+}
+
 :root {
   --display-weight: 400;
   --text-weight: 400;

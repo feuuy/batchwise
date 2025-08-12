@@ -1,136 +1,147 @@
-"use client";
-
-import {
-  ChevronLeft,
-  ChevronRight,
-  Copy,
-  Plus,
-  RotateCw,
-  Share,
-} from "lucide-react";
 import React from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { TextEffect } from "@/components/ui/text-effect";
+import { AnimatedGroup } from "@/components/ui/animated-group";
 
-import { cn } from "@/lib/utils";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-
-const Hero = () => {
-  return (
-    <section className="bg-background">
-      <div className="container relative pt-44">
-        <header className="mx-auto max-w-3xl text-center">
-          <h1 className="text-foreground text-4xl font-semibold tracking-tight lg:text-6xl">
-            All-in-One Batch Tracking Tool.
-          </h1>
-          <p className="text-muted-foreground my-7 max-w-3xl tracking-tight md:text-xl">
-            Manage stock, log production, visualize margins, and export reports.
-            All in one intuitive web app.
-          </p>
-        </header>
-
-        <Badge
-          variant="outline"
-          className="mx-auto mt-10 flex w-fit cursor-pointer items-center justify-center rounded-full border py-1 pl-2 pr-3 font-normal transition-all ease-in-out hover:gap-3"
-        >
-          <Avatar className="relative -mr-5 overflow-hidden rounded-full border md:size-10">
-            <AvatarImage
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp"
-              alt=""
-            />
-            <AvatarFallback>AB</AvatarFallback>
-          </Avatar>
-          <Avatar className="relative -mr-5 overflow-hidden rounded-full border md:size-10">
-            <AvatarImage
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp"
-              alt=""
-            />
-            <AvatarFallback>AB</AvatarFallback>
-          </Avatar>
-          <Avatar className="relative -mr-5 overflow-hidden rounded-full border md:size-10">
-            <AvatarImage
-              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-6.webp"
-              alt=""
-            />
-            <AvatarFallback>AB</AvatarFallback>
-          </Avatar>
-          <p className="ml-6 capitalize tracking-tight md:text-lg">
-            {" "}
-            Trusted by <span className="text-foreground font-bold">
-              1k+
-            </span>{" "}
-            users.
-          </p>
-        </Badge>
-
-        <div className="relative mt-12 flex h-full w-full flex-col items-center justify-center">
-          <BrowserMockup
-            className="w-full"
-            url="https://app.batchwise.com/dashboard"
-            DahboardUrlDesktop="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/dashboard/dashboard-1.png"
-            DahboardUrlMobile="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/dashboard/dashboard-mobile-1.png"
-          />
-          <div className="bg-linear-to-t absolute bottom-0 h-2/3 w-full from-background to-transparent" />
-        </div>
-      </div>
-    </section>
-  );
+const transitionVariants = {
+  item: {
+    hidden: {
+      opacity: 0,
+      filter: "blur(12px)",
+      y: 12,
+    },
+    visible: {
+      opacity: 1,
+      filter: "blur(0px)",
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.3,
+        duration: 1.5,
+      },
+    },
+  },
 };
 
-export { Hero };
-
-const BrowserMockup = ({
-  className = "",
-  url = "https://shadcnblocks.com/block/hero206",
-  DahboardUrlDesktop = "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/dashboard/dashboard-1.png",
-  DahboardUrlMobile = "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/dashboard/dashboard-mobile-1.png",
-}) => (
-  <div
-    className={cn(
-      "rounded-4xl relative w-full overflow-hidden border",
-      className
-    )}
-  >
-    <div className="bg-muted lg:gap-25 flex items-center justify-between gap-10 px-8 py-4">
-      <div className="flex items-center gap-2">
-        <div className="size-3 rounded-full bg-red-500" />
-        <div className="size-3 rounded-full bg-yellow-500" />
-        <div className="size-3 rounded-full bg-green-500" />
-        <div className="ml-6 hidden items-center gap-2 opacity-40 lg:flex">
-          <ChevronLeft className="size-5" />
-          <ChevronRight className="size-5" />
+export default function Hero() {
+  return (
+    <>
+      <main className="overflow-hidden">
+        <div
+          aria-hidden
+          className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block"
+        >
+          <div className="w-140 h-320 -translate-y-87.5 absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
+          <div className="h-320 absolute left-0 top-0 w-60 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
+          <div className="h-320 -translate-y-87.5 absolute left-0 top-0 w-60 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
         </div>
-      </div>
-      <div className="flex w-full items-center justify-center">
-        <p className="bg-background relative hidden w-full rounded-full px-4 py-1 text-center text-sm tracking-tight md:block">
-          {url}
-          <RotateCw className="absolute right-3 top-2 size-3.5" />
-        </p>
-      </div>
-
-      <div className="flex items-center gap-4 opacity-40">
-        <Share className="size-4" />
-        <Plus className="size-4" />
-        <Copy className="size-4" />
-      </div>
-    </div>
-
-    <div className="relative w-full">
-      <img
-        src={DahboardUrlDesktop}
-        alt=""
-        className="object-cove hidden aspect-video h-full w-full object-top md:block"
-      />
-      <img
-        src={DahboardUrlMobile}
-        alt=""
-        className="block h-full w-full object-cover md:hidden"
-      />
-    </div>
-    <div className="bg-muted absolute bottom-0 z-10 flex w-full items-center justify-center py-3 md:hidden">
-      <p className="relative flex items-center gap-2 rounded-full px-8 py-1 text-center text-sm tracking-tight">
-        {url}
-      </p>
-    </div>
-  </div>
-);
+        <section>
+          <div className="relative pt-24 md:pt-36">
+            <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
+            <div className="mx-auto max-w-7xl px-6">
+              <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
+                <TextEffect
+                  preset="fade-in-blur"
+                  speedSegment={0.3}
+                  as="h1"
+                  className="mt-8 text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem] text-pretty font-display font-extrabold"
+                >
+                  All-in-One Batch Tracking Tool
+                </TextEffect>
+                <TextEffect
+                  per="line"
+                  preset="fade-in-blur"
+                  speedSegment={0.3}
+                  delay={0.5}
+                  as="p"
+                  className="mx-auto mt-8 max-w-2xl text-balance text-lg text-muted-foreground"
+                >
+                  Manage stock, log production, visualize margins, and export
+                  reports. All in one intuitive web app.
+                </TextEffect>
+                <AnimatedGroup
+                  variants={{
+                    container: {
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.05,
+                          delayChildren: 0.75,
+                        },
+                      },
+                    },
+                    ...transitionVariants,
+                  }}
+                  className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
+                >
+                  <div
+                    key={1}
+                    className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
+                  >
+                    <Button asChild size="lg" className="rounded-xl px-5">
+                      <Link href="/sign-up">
+                        <span className="text-nowrap font-display">
+                          Get Started Free
+                        </span>
+                      </Link>
+                    </Button>
+                  </div>
+                  <Button
+                    key={2}
+                    asChild
+                    size="lg"
+                    variant="ghost"
+                    className="h-10.5 rounded-xl px-5"
+                  >
+                    <Link href="/contact-us">
+                      <span className="text-nowrap font-display">
+                        Contact Us
+                      </span>
+                    </Link>
+                  </Button>
+                </AnimatedGroup>
+              </div>
+            </div>
+            <AnimatedGroup
+              variants={{
+                container: {
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.05,
+                      delayChildren: 0.75,
+                    },
+                  },
+                },
+                ...transitionVariants,
+              }}
+            >
+              <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+                <div
+                  aria-hidden
+                  className="bg-linear-to-b to-background absolute inset-0 z-10 from-transparent from-35%"
+                />
+                <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
+                  <Image
+                    className="bg-background aspect-auto relative hidden rounded-2xl dark:block"
+                    src="/dark-card.webp"
+                    alt="app screen"
+                    width="2700"
+                    height="1440"
+                  />
+                  <Image
+                    className="z-2 border-border/25 aspect-auto relative rounded-2xl border dark:hidden"
+                    src="/card.webp"
+                    alt="app screen"
+                    width="2700"
+                    height="1440"
+                  />
+                </div>
+              </div>
+            </AnimatedGroup>
+          </div>
+        </section>
+      </main>
+    </>
+  );
+}

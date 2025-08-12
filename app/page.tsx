@@ -1,28 +1,19 @@
-import { Feature } from "@/components/Feature";
-import { Casestudies } from "@/components/Casestudies";
-import { Cta } from "@/components/Cta";
-import { Hero } from "@/components/Hero";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import Features from "@/components/Features";
+import Cta from "@/components/Cta";
+import { Navbar } from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
-      <Feature />
-      <Casestudies />
-      <Cta
-        heading="Create Your First Batch"
-        description="Our all-in-one tool cuts guesswork out of the production process, so you can focus on craft, not chaos."
-        buttons={{
-          primary: {
-            text: "Get Started Free",
-            url: "#",
-          },
-          secondary: {
-            text: "Contact Us",
-            url: "#",
-          },
-        }}
-      />
+      <Stats />
+      <Features />
+      <Cta />
+      <Footer />
     </>
   );
 }
