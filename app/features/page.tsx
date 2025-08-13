@@ -1,12 +1,12 @@
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Pricing from "@/components/Pricing";
+import FeaturesPage from "@/components/FeaturesPage";
 
-export default function PricingPage() {
+export default function Features() {
   return (
     <>
       <Navbar />
-      <Pricing />
+      <FeaturesPage />
       <Footer />
     </>
   );

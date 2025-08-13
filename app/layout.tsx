@@ -10,12 +10,14 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["600"],
   variable: "--display-family",
+  display: "swap",
 });
 
 const open_sans = Open_Sans({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--text-family",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

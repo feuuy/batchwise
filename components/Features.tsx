@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { ClipboardClock, Zap, DollarSign } from "lucide-react";
+import { ClipboardClock, Database, DollarSign } from "lucide-react";
 import { ReactNode } from "react";
 
 export default function Features() {
@@ -8,10 +8,10 @@ export default function Features() {
       <div className="@container mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-display lg:text-5xl">
-            Built to cover your needs
+            Built to Cover Your Needs
           </h2>
           <p className="mt-4 text-muted-foreground">
-            BatchWise automates tracking, batch logging, and profit insights—so
+            Batchwise automates tracking batch logging and profit insights so
             you spend less time guessing and more time creating.
           </p>
         </div>
@@ -19,7 +19,7 @@ export default function Features() {
           <Card className="group border-0 shadow-none">
             <CardHeader className="pb-3">
               <CardDecorator>
-                <Zap className="size-6" aria-hidden />
+                <Database className="size-6" aria-hidden />
               </CardDecorator>
 
               <h3 className="mt-6 font-medium">Real-time Stock Tracking</h3>
@@ -27,7 +27,7 @@ export default function Features() {
 
             <CardContent>
               <p className="mt-3 text-sm">
-                Know what ingredients you have, and what’s running low.
+                Know what ingredients you have and what is running low.
               </p>
             </CardContent>
           </Card>
@@ -43,8 +43,8 @@ export default function Features() {
 
             <CardContent>
               <p className="mt-3 text-sm">
-                Record each production run in seconds; auto-calculate yields and
-                costs.
+                Record each production run in seconds and automatically
+                calculate yields and costs.
               </p>
             </CardContent>
           </Card>
