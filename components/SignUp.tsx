@@ -13,7 +13,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { Loader, Loader2Icon } from "lucide-react";
+import { Loader2Icon } from "lucide-react";
 import { OAuthStrategy } from "@clerk/types";
 
 export default function SignUp() {
@@ -37,6 +37,7 @@ export default function SignUp() {
   // Handle submission of the sign-up form
   const handleSubmit = async (e: React.FormEvent) => {
     setIsSigningUp(true);
+    setIsSigningUpWithPassword(true);
 
     e.preventDefault();
 
@@ -59,7 +60,7 @@ export default function SignUp() {
       // Set 'verifying' true to display second form
       // and capture the OTP code
       setVerifying(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error(JSON.stringify(err, null, 2));
@@ -80,8 +81,8 @@ export default function SignUp() {
       .then((res) => {
         console.log(res);
       })
-      .catch((err: any) => {
-        console.log(err.errors);
+      .catch((err: unknown) => {
+        console.log(err);
         console.error(err, null, 2);
       });
   };
@@ -110,7 +111,7 @@ export default function SignUp() {
         // complete further steps.
         console.error(JSON.stringify(signUpAttempt, null, 2));
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error("Error:", JSON.stringify(err, null, 2));

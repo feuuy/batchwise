@@ -19,7 +19,7 @@ export default function Pricing() {
             Choose the Plan That Fits Your Needs
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Whether you're just starting out or scaling your operations,
+            Whether you&apos;re just starting out or scaling your operations,
             Batchwise offers plans designed to support your growth.
           </p>
         </div>

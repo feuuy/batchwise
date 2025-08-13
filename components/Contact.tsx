@@ -11,11 +11,11 @@ export default function Contact() {
       <div className="mx-auto max-w-3xl px-8 lg:px-0">
         <div className="mx-auto max-w-2xl space-y-6 text-center">
           <h2 className="text-balance text-4xl font-display lg:text-5xl">
-            We're Here to Help
+            We&apos;re Here to Help
           </h2>
           <p className="mt-4 text-muted-foreground">
             Have a question or need help getting started? Drop us a message
-            below and we’ll get back to you.
+            below and we&apos;ll get back to you.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function Contact() {
               <Label htmlFor="website">Company Website</Label>
               <Input type="url" id="website" />
               <span className="text-muted-foreground inline-block text-sm">
-                Must start with 'https'
+                Must start with &apos;https&apos;
               </span>
             </div>
 

@@ -9,6 +9,7 @@ import { useSignIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { Loader2Icon } from "lucide-react";
 import { OAuthStrategy } from "@clerk/types";
+import { ClerkAPIError } from "@clerk/types";
 
 export default function LogIn() {
   const { isLoaded, signIn, setActive } = useSignIn();
@@ -49,7 +50,7 @@ export default function LogIn() {
         // complete further steps.
         console.error(JSON.stringify(signInAttempt, null, 2));
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error(JSON.stringify(err, null, 2));
@@ -70,8 +71,8 @@ export default function LogIn() {
       .then((res) => {
         console.log(res);
       })
-      .catch((err: any) => {
-        console.log(err.errors);
+      .catch((err: unknown) => {
+        console.log(err);
         console.error(err, null, 2);
       });
   };
@@ -219,7 +220,7 @@ export default function LogIn() {
 
         <div className="p-3">
           <p className="text-accent-foreground text-center text-sm">
-            Don't have an account ?
+            Don&apos;t have an account ?
             <Button asChild variant="link" className="px-2">
               <Link href="/sign-up">Create account</Link>
             </Button>
